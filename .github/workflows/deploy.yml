@@ -33,10 +33,16 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Cek Struktur Folder (Debug)
+        run: |
+          echo "=== DAFTAR SEMUA FOLDER HASIL BUILD ==="
+          find . -maxdepth 2 -type d | grep -v "\.git" | grep -v "node_modules"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          # Kita uji coba .vercel/output/static sementara action mencari folder aslinya
+          path: ./.vercel/output/static
           
   deploy:
     environment:
