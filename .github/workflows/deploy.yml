@@ -36,8 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Coba dist terlebih dahulu. Jika gagal, ganti baris ini menjadi: path: ./.output/public
-          path: ./dist
+          path: ./.output/public
           
   deploy:
     environment:
